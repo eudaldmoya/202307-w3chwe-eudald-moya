@@ -11,6 +11,10 @@ class Component implements ComponentStructure {
     this.element = document.createElement(tag);
     this.element.className = className;
   }
+
+  public render(): void {
+    this.parentElement.append(this.element);
+  }
 }
 
 export default Component;

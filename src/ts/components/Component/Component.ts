@@ -15,6 +15,10 @@ class Component implements ComponentStructure {
   public render(): void {
     this.parentElement.append(this.element);
   }
+
+  public remove(): void {
+    this.parentElement.remove();
+  }
 }
 
 export default Component;

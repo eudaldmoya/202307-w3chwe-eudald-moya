@@ -6,7 +6,7 @@ class Component implements ComponentStructure {
   constructor(
     private readonly parentElement: Element,
     tag: string,
-    className: string
+    className = ""
   ) {
     this.element = document.createElement(tag);
     this.element.className = className;
@@ -17,7 +17,7 @@ class Component implements ComponentStructure {
   }
 
   public remove(): void {
-    this.parentElement.remove();
+    this.element.remove();
   }
 }
 

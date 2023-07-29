@@ -22,6 +22,7 @@ class AppComponent extends Component {
     this.element.innerHTML = `<h1 class="title">Pokemon List</h1>
     <ul class="pokemon-list">
     </ul>
+    <div class= "buttons-container"></div> 
     `;
   }
 

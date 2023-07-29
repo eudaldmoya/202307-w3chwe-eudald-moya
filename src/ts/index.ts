@@ -1,3 +1,10 @@
-import getPokemonList from "./getData/getPokemonList.js";
+import AppComponent from "./components/AppComponent/AppComponent.js";
 
-await getPokemonList();
+const appContainer = document.querySelector(".app");
+
+if (!appContainer) {
+  throw new Error("App container is missing");
+}
+
+const appComponent = new AppComponent(appContainer);
+appComponent.render();

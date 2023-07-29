@@ -22,3 +22,8 @@ export interface PokemonResponse {
 export interface Type {
   name: string;
 }
+
+export interface ComponentStructure {
+  render: () => void;
+  remove: () => void;
+}

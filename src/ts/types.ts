@@ -10,7 +10,9 @@ export interface PokemonData extends Pokemon {
 
 export interface Pokemon {
   name: string;
-  url: string;
+  pokemonUrl: string;
+  readonly nextUrl: string;
+  readonly previousUrl: string;
 }
 
 export interface Type {

@@ -25,6 +25,17 @@ class PokemonCardComponent extends Component {
       <img class="card__image">
     `;
   }
+
+  private setVariables(): void {
+    const imgElement = this.element.querySelector("img");
+    imgElement?.setAttribute(
+      "src",
+      this.pokemonData.sprites.other.dream_world.front_default
+    );
+
+    const nameElement = this.element.querySelector(".card__name")!;
+    nameElement.textContent = this.pokemonData.name;
+  }
 }
 
 export default PokemonCardComponent;

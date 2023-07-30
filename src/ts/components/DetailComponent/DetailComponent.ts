@@ -24,10 +24,12 @@ class DetailComponent extends Component {
     super.render();
 
     this.element.innerHTML = `<button class="button back">back to home page</button>  
-    <article class= "card-detail">
-      <img class="card__image">
-      <div class="card_text">
-        <h2 class="card__name"></h2>
+    <article class= "detail">
+      <img class="detail__image">
+      <div class="detail__text">
+        <h2 class="text__name"></h2>
+        <ul class="text__types">
+        </ul>
       </div>
     </article>`;
 
@@ -43,14 +45,22 @@ class DetailComponent extends Component {
   }
 
   private setVariables(): void {
+    console.log(this.pokemonData.types);
     const imgElement = this.element.querySelector("img");
     imgElement?.setAttribute(
       "src",
       this.pokemonData.sprites.other.dream_world.front_default
     );
 
-    const nameElement = this.element.querySelector(".card__name")!;
+    const nameElement = this.element.querySelector(".text__name")!;
     nameElement.textContent = this.pokemonData.name;
+
+    const typesElement = this.element.querySelector(".text__types")!;
+    this.pokemonData.types.forEach((type) => {
+      const typeElement = document.createElement("li");
+      typeElement.textContent = type.type.name;
+      typesElement.append(typeElement);
+    });
   }
 }
 

@@ -29,7 +29,7 @@ button {
   padding: 4rem 4rem;
 }
 
-img {
+.card__image {
   max-width: 200px;
   max-height: 300px;
   object-fit: cover;
@@ -94,6 +94,10 @@ img {
   color: white;
 }
 
+.back {
+  margin-bottom: 100px;
+}
+
 @media (max-width: 1000px) {
   .pokemon-list {
     grid-template-columns: repeat(3, 1fr);
@@ -110,4 +114,13 @@ img {
   .pokemon-list {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+
+.detail {
+  display: flex;
+  gap: 50px;
+}
+
+.detail__image {
+  max-width: 300px;
 }

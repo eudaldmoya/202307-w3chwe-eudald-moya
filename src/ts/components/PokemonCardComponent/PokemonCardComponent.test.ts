@@ -17,4 +17,18 @@ describe("Given a PokemonCardComponent", () => {
       }, 2000);
     });
   });
+
+  describe("when it receives a div and 'https://pokeapi.co/api/v2/pokemon/1'", () => {
+    test("Then it should render an article with the card", () => {
+      const url = "https://pokeapi.co/api/v2/pokemon/1";
+      const divElement = document.createElement("div");
+
+      const cardComponent = new PokemonCardComponent(divElement, url);
+      cardComponent.render();
+
+      const articleElement = divElement.querySelector("article");
+
+      expect(divElement.contains(articleElement)).toBe(true);
+    });
+  });
 });

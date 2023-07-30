@@ -1,13 +1,13 @@
 export interface PokemonData extends Pokemon {
   id: number;
-  type: { types: Type[] };
+  name: string;
+  types: Type[];
   height: number;
   weight: number;
   sprites: { other: { dream_world: { front_default: string } } };
 }
 
 export interface Pokemon {
-  name: string;
   url: string;
 }
 
@@ -18,7 +18,7 @@ export interface PokemonResponse {
 }
 
 export interface Type {
-  typeName: { type: { name: string } };
+  type: { name: string };
 }
 
 export interface ComponentStructure {

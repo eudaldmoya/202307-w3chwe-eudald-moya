@@ -40,7 +40,8 @@ class PokemonCardComponent extends Component {
 
   private handleClick(): void {
     this.element.addEventListener("click", () => {
-      window.location.href = `pokemonDetail.html?id=${this.id}`;
+      localStorage.setItem("id", `${this.id}`);
+      window.location.href = `/pokemonDetail.html?id=${this.id}`;
     });
   }
 }

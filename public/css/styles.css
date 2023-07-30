@@ -29,7 +29,7 @@ button {
   padding: 4rem 4rem;
 }
 
-img {
+.card__image {
   max-width: 200px;
   max-height: 300px;
   object-fit: cover;
@@ -75,8 +75,7 @@ img {
   margin-top: 100px;
 }
 
-.previous,
-.next {
+.button {
   padding: 20px 60px;
   border: 4px solid black;
   background-color: white;
@@ -90,10 +89,13 @@ img {
   border-top-right-radius: 20px;
 }
 
-.previous:hover,
-.next:hover {
+.button:hover {
   background-color: black;
   color: white;
+}
+
+.back {
+  margin-bottom: 100px;
 }
 
 @media (max-width: 1000px) {
@@ -112,4 +114,13 @@ img {
   .pokemon-list {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+
+.detail {
+  display: flex;
+  gap: 50px;
+}
+
+.detail__image {
+  max-width: 300px;
 }

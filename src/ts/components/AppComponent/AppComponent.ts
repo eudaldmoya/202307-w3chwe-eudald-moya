@@ -31,9 +31,9 @@ class AppComponent extends Component {
     <ul class="pokemon-list">
     </ul>
     <div class= "buttons-container">
-      <button class="previous">previous</button>
+      <button class="button previous">previous</button>
       <span class="pokemon-counter">0/1281</span> 
-      <button class="next">next</button>
+      <button class="button next">next</button>
     </div>
     `;
   }

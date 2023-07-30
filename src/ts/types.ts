@@ -1,4 +1,5 @@
 export interface PokemonData extends Pokemon {
+  id: number;
   type: { types: Type[] };
   height: number;
   weight: number;

@@ -24,7 +24,8 @@ button {
   cursor: pointer;
 }
 
-.container {
+.container,
+.detail-section {
   padding: 4rem 4rem;
 }
 

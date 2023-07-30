@@ -1,16 +1,18 @@
 import getPokemonList from "../../getData/getPokemonList.js";
-import { type Pokemon } from "../../types.js";
+import { type Pokemon, type PokemonData } from "../../types.js";
 import Component from "../Component/Component.js";
+import PokemonCardComponent from "../PokemonCardComponent/PokemonCardComponent.js";
 
 class AppComponent extends Component {
   private pokemons: Pokemon[] = [];
+  private readonly pokemonsData: PokemonData[];
 
   constructor(parentElement: Element) {
     super(parentElement, "div", "container");
 
     (async () => {
       const pokemonList = await getPokemonList();
-      console.log(pokemonList.results);
+
       this.pokemons = pokemonList.results;
       this.renderPokemonList();
     })();
@@ -19,10 +21,10 @@ class AppComponent extends Component {
   public render(): void {
     super.render();
 
-    this.element.innerHTML = `<h1 class="title">Pokemon List</h1>
+    this.element.innerHTML = `<h1 class="title">Pokedex</h1>
     <ul class="pokemon-list">
     </ul>
-    <div class= "buttons-container"></div> 
+    <div class= "buttons-container"></div>
     `;
   }
 
@@ -32,12 +34,9 @@ class AppComponent extends Component {
     this.pokemons.forEach((pokemon) => {
       const liElement = document.createElement("li")!;
 
-      const linkElement = document.createElement("a")!;
-      const linkToDetail = `#`;
-      linkElement.textContent = pokemon.name;
-      linkElement.setAttribute("href", linkToDetail);
+      const card = new PokemonCardComponent(liElement, pokemon.url);
+      card.render();
 
-      liElement.append(linkElement);
       ulElement.append(liElement);
     });
   }

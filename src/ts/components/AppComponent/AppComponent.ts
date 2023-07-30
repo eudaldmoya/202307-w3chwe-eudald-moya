@@ -70,7 +70,9 @@ class AppComponent extends Component {
         this.next = newPokemonList.next;
         this.previous = newPokemonList.previous;
         this.pokemonCounter -= 20;
+
         spanElement.textContent = `${this.pokemonCounter}/1281`;
+
         this.removeActualList();
         this.renderPokemonList();
       }
@@ -85,7 +87,9 @@ class AppComponent extends Component {
         this.next = newPokemonList.next;
         this.previous = newPokemonList.previous;
         this.pokemonCounter += 20;
+
         spanElement.textContent = `${this.pokemonCounter}/1281`;
+
         this.removeActualList();
         this.renderPokemonList();
       }

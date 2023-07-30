@@ -4,6 +4,7 @@ import Component from "../Component/Component.js";
 
 class PokemonCardComponent extends Component {
   pokemonData: PokemonData;
+  private id: number;
 
   constructor(parentElement: Element, url: string) {
     super(parentElement, "article", "card");
@@ -11,7 +12,9 @@ class PokemonCardComponent extends Component {
     (async () => {
       const pokemonData = await getPokemonData(url);
       this.pokemonData = pokemonData;
+      this.id = pokemonData.id;
       this.setVariables();
+      this.handleClick();
     })();
   }
 
@@ -33,6 +36,12 @@ class PokemonCardComponent extends Component {
 
     const nameElement = this.element.querySelector(".card__name")!;
     nameElement.textContent = this.pokemonData.name;
+  }
+
+  private handleClick(): void {
+    this.element.addEventListener("click", () => {
+      window.location.href = `pokemonDetail.html?id=${this.id}`;
+    });
   }
 }
 

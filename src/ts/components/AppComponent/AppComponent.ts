@@ -8,6 +8,7 @@ class AppComponent extends Component {
   private pokemons: Pokemon[] = [];
   private previous: string;
   private next: string;
+  private pokemonCounter = 0;
 
   constructor(parentElement: Element) {
     super(parentElement, "div", "container");
@@ -31,7 +32,7 @@ class AppComponent extends Component {
     </ul>
     <div class= "buttons-container">
       <button class="previous">previous</button>
-      <span>/1281</span> 
+      <span class="pokemon-counter">0/1281</span> 
       <button class="next">next</button>
     </div>
     `;
@@ -62,18 +63,30 @@ class AppComponent extends Component {
 
     previousButtonElement?.addEventListener("click", async () => {
       if (this.previous !== null) {
+        const spanElement = this.element.querySelector(".pokemon-counter")!;
         const newPokemonList = await getPokemonList(this.previous);
 
         this.pokemons = newPokemonList.results;
+        this.next = newPokemonList.next;
+        this.previous = newPokemonList.previous;
+        this.pokemonCounter -= 20;
+        spanElement.textContent = `${this.pokemonCounter}/1281`;
+        this.removeActualList();
         this.renderPokemonList();
       }
     });
 
     nextButtonElement?.addEventListener("click", async () => {
       if (this.next !== null) {
+        const spanElement = this.element.querySelector(".pokemon-counter")!;
         const newPokemonList = await getPokemonList(this.next);
 
         this.pokemons = newPokemonList.results;
+        this.next = newPokemonList.next;
+        this.previous = newPokemonList.previous;
+        this.pokemonCounter += 20;
+        spanElement.textContent = `${this.pokemonCounter}/1281`;
+        this.removeActualList();
         this.renderPokemonList();
       }
     });

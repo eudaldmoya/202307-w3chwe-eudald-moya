@@ -50,6 +50,12 @@ class AppComponent extends Component {
     });
   }
 
+  private removeActualList(): void {
+    const ulElement = this.element.querySelector(".pokemon-list")!;
+
+    ulElement.innerHTML = "";
+  }
+
   private handleButtons(): void {
     const previousButtonElement = this.element.querySelector(".previous");
     const nextButtonElement = this.element.querySelector(".next");

@@ -10,9 +10,7 @@ class PokemonCardComponent extends Component {
 
     (async () => {
       const pokemonData = await getPokemonData(url);
-      console.log(`pokemonData:`, pokemonData);
       this.pokemonData = pokemonData;
-      console.log(pokemonData.sprites);
       this.setVariables();
     })();
   }

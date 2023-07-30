@@ -46,11 +46,12 @@ class DetailComponent extends Component {
 
   private setVariables(): void {
     console.log(this.pokemonData.types);
-    const imgElement = this.element.querySelector("img");
-    imgElement?.setAttribute(
+    const imgElement = this.element.querySelector("img")!;
+    imgElement.setAttribute(
       "src",
       this.pokemonData.sprites.other.dream_world.front_default
     );
+    imgElement.setAttribute("alt", `${this.pokemonData.name} artwork`);
 
     const nameElement = this.element.querySelector(".text__name")!;
     nameElement.textContent = this.pokemonData.name;
